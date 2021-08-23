@@ -1,20 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../Plants-Header/Header";
+import Header from "../PlantsHeader/Header";
 import Plant from "../Plant/Plant";
 import PlantForm from "../PlantForm/PlantForm";
 import "./Plants.css";
 
 const Plants = () => {
-    const [plant, setPlant] = useState({
-        id: "",
-        nickname: "",
-        species: "",
-        h20frequency: "",
-    })
 
     const [plantData, setPlantData] = useState([]);
     const [reqError, setReqError] = useState(null);
+
+    const appendPlant = newPlant => {
+        setPlantData([...plantData, newPlant])
+        console.log(plantData);
+    }
 
     useEffect( () => {
         axios.get("fakeapi.com")
@@ -25,8 +24,8 @@ const Plants = () => {
     return(
         <div className="container">
             <Header />
-            <PlantForm />
             <section className="plantList" >
+            <PlantForm appendPlant={appendPlant} />
                 {plantData.map( (plant, index) => <Plant key={index} nickname={plant.nickname} species={plant.species} h20frequency={plant.h20frequency} />)}
             </section>
         </div>
