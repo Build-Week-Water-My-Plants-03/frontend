@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import Plants from './Components/Plants/Plants';
 import Plant from './Components/Plant/Plant';
-import {Switch, Route} from 'react-router-dom';
+import {Link, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <Switch>
-      <Route path='/'>
+      <Route exact path='/'>
         
       </Route>
       <Route path='/plants'>
