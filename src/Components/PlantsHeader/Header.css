@@ -1,10 +1,17 @@
-body {
-  background-color: #f7edf0;
-}
 
 svg.droplet {
-    color: #b6b1e7;
+    /* color: #b6b1e7; */
+    color: #00b4d8;
     margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+div p {
+  font-size: 1.2rem;
 }
 
 header {
@@ -13,6 +20,7 @@ header {
   justify-content: space-between;
   align-items: center;
   color: #a79b83;
+  padding: 10px;
 }
 
 .headerDiv {
