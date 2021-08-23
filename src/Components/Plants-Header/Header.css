@@ -1,0 +1,23 @@
+body {
+  background-color: #f7edf0;
+}
+
+svg.droplet {
+    color: #b6b1e7;
+    margin: 0 10px;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #a79b83;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 10px;
+}
