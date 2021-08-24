@@ -1,12 +1,14 @@
 import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import Plants from './Components/Plants/Plants';
-import Plant from './Components/Plant/Plant';
+import Plants from './components/Plants/Plants';
+import Plant from './components/Plant/Plant';
 import {Switch, Route} from 'react-router-dom';
-
-function App() {
+import { Homepage } from "./containers/homepage";
+function App(props) {
   return (
     <Switch>
+       return <Homepage />;
       <Route path='/'>
         
       </Route>
