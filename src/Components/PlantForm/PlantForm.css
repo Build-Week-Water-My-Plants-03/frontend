@@ -12,8 +12,16 @@
 .errorCont {
     width: 80%; height: auto;
     margin: 0 auto;
+    display: flex;
+    flex-flow: column;
     text-align: center;
     color: red;
+}
+
+.errorMsg {
+    color: red;
+    text-align: center;
+    margin: 2px 0;
 }
 
 h2 {

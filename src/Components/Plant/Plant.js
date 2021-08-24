@@ -1,14 +1,17 @@
 import "./Plant.css"
 
 const Plant = (props) => {
+    // destructuring props needed for each plant
     const {nickname, species, h20frequency} = props
+
+    //return statement that will be rendered
     return(
         <div>
             <div className="plantCard">
                 <h2>{nickname}</h2>
                 <div className="plantText">
                     <p>{species}</p>
-                    <p>{`${h20frequency*24} hours`}</p>
+                    <p>{`Water Every ${h20frequency} Days`}</p>
                 </div>
                 <div>
                     <button className="plantBtn">Edit</button>
