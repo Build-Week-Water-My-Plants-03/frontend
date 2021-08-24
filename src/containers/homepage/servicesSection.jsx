@@ -36,9 +36,7 @@ export function ServicesSection(props) {
       />
       <OurSerivce
         title="Quality Is Our Priority"
-        description="We have teams of professional developers, designers
-        and managers that ensures delivering the best 
-        software quality for your company"
+        description=" Most of the plants we grow are planted in restoration projects, often in challenging environments east of the Cascades with little or no irrigation."
         imgUrl={Service3Img}
       />
     </ServicesContainer>
