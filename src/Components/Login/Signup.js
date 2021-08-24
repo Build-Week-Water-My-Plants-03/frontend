@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import Confirmation from './Confirmation';
 import axios from 'axios';
 import * as yup from 'yup';
+import './Login.css';
 
 const initialFormValues = {
     username:'',
@@ -26,8 +27,7 @@ export default function Signup(){
         username: yup
             .string()
             .trim()
-            .required('Username is required')
-            .min(3, 'Username must be 3 characters long'),
+            .required('Username is required'),
         password: yup
             .string()
             .trim()
@@ -82,6 +82,7 @@ export default function Signup(){
     function handleSubmit(event) {
         event.preventDefault();
         postUser();//give us if the user has signed up successfully or there is an error message
+        // setSignupError('error!')
     }
     //frontend validation
     useEffect(()=> {
@@ -94,7 +95,7 @@ export default function Signup(){
                 <h2>
                     Create an account
                 </h2>
-                {signupError && <div className='signup-error'>{signupError}</div>}
+                {signupError && <div className='error'>{signupError}</div>}
                 <div className='form-inputs'>
                     <label className='form-label'>Username: </label>
                     <input
