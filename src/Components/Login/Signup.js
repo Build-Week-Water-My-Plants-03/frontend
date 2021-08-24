@@ -1,8 +1,6 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import Confirmation from './Confirmation';
-import {Switch, Route} from 'react-router-dom';
-import validator from 'validator';
 import axios from 'axios';
 import * as yup from 'yup';
 
@@ -19,7 +17,7 @@ const initialFormErrors = {
 
 const initialDisabled = true
 
-export default function Signup({submitForm}){
+export default function Signup(){
 
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -44,12 +42,24 @@ export default function Signup({submitForm}){
     
     const [disabled, setDisabled] = useState(initialDisabled)
 
-    const postUser = () => {
-        axios.post('backend api', {username: '', password:'', phone:''})
-            .then(res => {
-                console.log(res)
-                //need to post new user data to backend for validation and store data
+    //make sure valid user signup
+    const [signupSuccess, setSignupSuccess] = useState(true)
+    const [signupError, setSignupError] = useState('')
 
+    //route to signup confirmation page once the user is a validated new user
+    const history = useHistory();
+    const routeToConfirmation = () => {history.push('/confirmation')}
+
+    const postUser = () => {
+        axios.post('backend api', initialFormValues)
+            .then(res => {
+                setSignupSuccess(res.data)
+                if(signupSuccess(res) === true){
+                    routeToConfirmation()
+                }
+                else{
+                     setSignupError('error message from backend depending on specific situation')
+                }
             }).catch(err => console.error(err))
     }
 
@@ -71,10 +81,9 @@ export default function Signup({submitForm}){
 
     function handleSubmit(event) {
         event.preventDefault();
-        postUser();
-        //if validated, route to /plants
+        postUser();//give us if the user has signed up successfully or there is an error message
     }
-
+    //frontend validation
     useEffect(()=> {
        formSchema.isValid(formValues).then(valid => setDisabled(!valid))
     }, [formValues])
@@ -83,8 +92,9 @@ export default function Signup({submitForm}){
         <div className='signup-form'>
             <form onSubmit={handleSubmit} className='form'>
                 <h2>
-                    Create account
+                    Create an account
                 </h2>
+                {signupError && <div className='signup-error'>{signupError}</div>}
                 <div className='form-inputs'>
                     <label className='form-label'>Username: </label>
                     <input
@@ -93,7 +103,7 @@ export default function Signup({submitForm}){
                         name='username'
                         value={formValues.username}
                         onChange={inputChange}
-                        placeholder='enter your username'
+                        placeholder='username'
                     />
                     {formErrors.username.length > 0 && <p className='error'>{formErrors.username}</p>}
                 </div>
@@ -105,7 +115,7 @@ export default function Signup({submitForm}){
                         name='phone'
                         value={formValues.phone}
                         onChange={inputChange}
-                        placeholder='enter your phone number'
+                        placeholder='valid phone number'
                     />
                     {formErrors.phone.length > 0 && <p className='error'>{formErrors.phone}</p>}
                 </div>
@@ -117,18 +127,13 @@ export default function Signup({submitForm}){
                         name='password'
                         value={formValues.password}
                         onChange={inputChange}
-                        placeholder='enter your password'
+                        placeholder='password'
                     />
                     {formErrors.password.length > 0 && <p className='error'>{formErrors.password}</p>}
                 </div>
                 <button className='form-input-btn' type='submit' disabled={disabled}>
                     Sign up
                 </button>
-                {/* <Switch>
-                    <Route path='/confirmation'>
-                        <Confirmation success={success}/>
-                    </Route>
-                </Switch> */}
                 <span className='form-input-login'>
                     Already have an account? Login <a href='http://localhost:3000/'>here</a>
                 </span>
