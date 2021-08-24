@@ -54,7 +54,7 @@ const Login = () => {
       <div>
         <h1>LoginForm We can remove this text completely</h1>
         <div data-testid="loginForm" className="login-form">
-          <h2>Log in to pick your color</h2>
+          
         </div>
   
         {/* Show any errors */}
