@@ -1,13 +1,13 @@
 import './App.css';
 import Plants from './Components/Plants/Plants';
 import Plant from './Components/Plant/Plant';
-import {Switch, Route} from 'react-router-dom';
+import {Link, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <Switch>
       <Route exact path='/'>
-
+        <Link to="/plants">plants</Link>
       </Route>
       <Route path='/plants'>
         <Plants />

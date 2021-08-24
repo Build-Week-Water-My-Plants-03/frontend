@@ -1,3 +1,14 @@
+.headerLinks{
+  text-decoration: none;
+  color: #a79b83;
+  transition: all 250ms;
+}
+
+.headerLinks:hover{
+  /* text-decoration: white underline; */
+  text-shadow: 0px 0px 5px white;
+  color: #a79b83;
+}
 
 svg.droplet {
     /* color: #b6b1e7; */
@@ -12,6 +23,10 @@ h1 {
 
 div p {
   font-size: 1.2rem;
+}
+
+div p:first-of-type {
+  margin-right: 30px;
 }
 
 header {
