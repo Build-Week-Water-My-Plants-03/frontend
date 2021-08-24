@@ -1,19 +1,27 @@
 import './App.css';
 import PlantList from './Components/PlantList/PlantList';
 import PlantDetails from './Components/PlantDetails/PlantDetails';
+import Login from './Components/Login/Login';
+import Signup from './Components/Login/Signup';
+import Confirmation from './Components/Login/Confirmation';
 import {Switch, Route} from 'react-router-dom';
 
-import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import Login from './Login/Login';
-import Signup from './Login/Signup';
-import Form from './Login/Form';
+import React, {useState, useEffect} from 'react';
+
+
 
 function App() {
+
   return (
     <Switch>
       <Route exact path='/'>
-
+        <Login />
+      </Route>
+      <Route path='/signup'>
+        <Signup />
+      </Route>
+      <Route path='/confirmation'>
+        <Confirmation />
       </Route>
       <Route path='/plants'>
         <PlantList />
