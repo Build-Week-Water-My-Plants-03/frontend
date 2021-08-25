@@ -3,7 +3,8 @@ import {useHistory} from 'react-router-dom';
 import Confirmation from './Confirmation';
 import axios from 'axios';
 import * as yup from 'yup';
-import './Login.css';
+import './Signup.css';
+import formSchema from './SignupValidation';
 
 const initialFormValues = {
     username:'',
@@ -22,23 +23,6 @@ export default function Signup(){
 
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
-
-    const formSchema = yup.object().shape({
-        username: yup
-            .string()
-            .trim()
-            .required('Username is required'),
-        password: yup
-            .string()
-            .trim()
-            .required('Password is required'),
-        phone: yup
-            .string()
-            .trim()
-            .required('Phone number is required')
-            // .matches(/^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
-            // "Invalid phone number"),
-    }) 
     
     const [disabled, setDisabled] = useState(initialDisabled)
 

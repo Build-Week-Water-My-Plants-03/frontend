@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
-import './Login.css';
 import * as yup from 'yup';
 
 const initialFormValues = {
