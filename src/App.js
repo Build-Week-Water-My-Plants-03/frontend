@@ -1,6 +1,6 @@
 import './App.css';
-import Plants from './Components/Plants/Plants';
-import Plant from './Components/Plant/Plant';
+import PlantList from './Components/PlantList/PlantList';
+import PlantDetails from './Components/PlantDetails/PlantDetails';
 import {Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -10,10 +10,10 @@ function App() {
 
       </Route>
       <Route path='/plants'>
-        <Plants />
+        <PlantList />
       </Route>
       <Route path='/plants/:id'>
-        <Plant />
+        <PlantDetails />
       </Route>
     </Switch>
   );

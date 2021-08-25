@@ -4,19 +4,22 @@ import "./PlantForm.css";
 import * as Yup from 'yup';
 
 const PlantForm = (props) => {
+
+    // setting states & props needed for plant form
     const {appendPlant} = props;
+    const [postError, setPostError] = useState(null);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
     const [formValues, SetFormValues] = useState({
         nickname: "",
         species: "",
         h20frequency:""
     });
-    const [postError, setPostError] = useState(null);
     const [valError, setValError] = useState({
         nickname: "",
         species: "",
         h20frequency:""
     });
-    const [buttonDisabled, setButtonDisabled] = useState(true);
+
     // implementing Yup & Declaring a schema to validate my form
     const formSchema = Yup.object().shape({
         nickname: Yup
@@ -32,6 +35,7 @@ const PlantForm = (props) => {
         .required("Please enter a watering frequency")
     });
 
+    //function that will update the value of inputs and possible selects on change as well as check for validation errors and display them if necessary
     const inputChange = e => {
         const {name, value, checked, type} = e.target
         const valueToUse = type === 'checkbox' ? checked : value;
@@ -55,12 +59,14 @@ const PlantForm = (props) => {
         })
     }
 
+    //Toggling Disable status on the submit button based on form validation 
     useEffect( () => {
         formSchema.isValid(formValues).then((valid) => {
             setButtonDisabled(!valid);
         })
     }, [formValues])
 
+     //function that will submit the form to an API and reset the form values to default
     const submit = e => {
         e.preventDefault();
         const newPlant = {
@@ -83,6 +89,7 @@ const PlantForm = (props) => {
         })
     }
 
+    //return statement that will be rendered
     return(
         <div>
             <div className="errorCont">
@@ -90,7 +97,7 @@ const PlantForm = (props) => {
                 {valError.species.length > 0 && <p className="errorMsg">{valError.species}</p>}
                 {valError.h20frequency.length > 0 && <p className="errorMsg">Number not detected</p>}
             </div>
-            <form onSubmit={submit}>
+            <form className="plantCard" onSubmit={submit}>
                 <h2>Create Your Plant!</h2>
                 <div className="inputCont">
                     <label>

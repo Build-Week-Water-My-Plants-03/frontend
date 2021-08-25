@@ -1,5 +1,5 @@
 body {
-    background-color: #f7edf0;
+    background-color: #ece4e6;
     color: #a79b83;
   }
 
@@ -16,4 +16,8 @@ body {
     justify-content: space-evenly;
     width: 100vw; height: auto;
     margin-top: 100px;
+}
+
+.reqErrorMsg{
+    margin-top: 20px;
 }
