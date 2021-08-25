@@ -15,9 +15,32 @@ div.plantText p:first-of-type {
     font-size: 1.6rem;
     position: relative;
     top: -25px;
+    color:rgb(103, 139, 29);
 }
 
 .plantBtn {
     display: inline-block;
     margin: none;
+}
+
+.plant {
+    background-color: #ece4e6;
+
+}
+
+.plantCard{
+    animation: rotateY 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes rotateY {
+    0% {
+       transform: rotateY(90deg)
+   }
+   80% {
+       transform: rotateY(-10deg)
+   }
+   100% {
+       transform: rotateY(0)
+   }
 }
