@@ -5,14 +5,18 @@
     height: 50%;
 }
 
+div.plantCard h2 {
+   font-size: 2rem;
+}
+
 div.plantText p {
-    font-size: 1.6rem;
+   font-size: 1.6rem;
     margin: 0;
     text-align: center;
 }
-
+ 
 div.plantText p:first-of-type {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     position: relative;
     top: -25px;
     color:rgb(103, 139, 29);
