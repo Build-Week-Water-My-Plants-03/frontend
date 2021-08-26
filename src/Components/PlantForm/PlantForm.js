@@ -31,8 +31,9 @@ const PlantForm = (props) => {
         .trim()
         .required("Please enter a species"),
         h20frequency: Yup
-        .number().positive()
-        .required("Please enter a watering frequency")
+        .string()
+        .trim()
+        .required("Please enter desired watering schedule"),
     });
 
     //function that will update the value of inputs and possible selects on change as well as check for validation errors and display them if necessary
@@ -109,9 +110,8 @@ const PlantForm = (props) => {
                         <input value={formValues.species} name="species" onChange={inputChange} placeholder="Ex: Rose"/>
                     </label>
                     <label>
-                        I plan to water {formValues.nickname} every
-                        <input className="h20frequency" value={formValues.h20frequency} name="h20frequency" onChange={inputChange} placeholder="Ex: 7" />
-                        day/s
+                        Watering Details:
+                        <input className="" value={formValues.h20frequency} name="h20frequency" onChange={inputChange} placeholder="Ex: an inch a week" />
                     </label>
                 </div>
                 <button disabled={buttonDisabled}>Create!</button>

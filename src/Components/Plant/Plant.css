@@ -5,19 +5,46 @@
     height: 50%;
 }
 
+div.plantCard h2 {
+   font-size: 2rem;
+}
+
 div.plantText p {
-    font-size: 1.6rem;
+   font-size: 1.6rem;
     margin: 0;
     text-align: center;
 }
-
+ 
 div.plantText p:first-of-type {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     position: relative;
     top: -25px;
+    color:rgb(103, 139, 29);
 }
 
 .plantBtn {
     display: inline-block;
     margin: none;
+}
+
+.plant {
+    background-color: #ece4e6;
+
+}
+
+.plantCard{
+    animation: rotateY 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes rotateY {
+    0% {
+       transform: rotateY(90deg)
+   }
+   80% {
+       transform: rotateY(-10deg)
+   }
+   100% {
+       transform: rotateY(0)
+   }
 }

@@ -7,11 +7,11 @@ const Plant = (props) => {
     //return statement that will be rendered
     return(
         <div>
-            <div className="plantCard">
+            <div className="plantCard plant">
                 <h2>{nickname}</h2>
                 <div className="plantText">
                     <p>{species}</p>
-                    <p>{`Water Every ${h20frequency} Days`}</p>
+                    <p>{`Watering: ${h20frequency}`}</p>
                 </div>
                 <div>
                     <button className="plantBtn">Edit</button>

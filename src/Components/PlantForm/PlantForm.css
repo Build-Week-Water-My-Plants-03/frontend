@@ -9,6 +9,10 @@
     box-shadow: 1px 1px 15px black;
 }
 
+form {
+    background-color: whitesmoke;
+}
+
 .errorCont {
     width: 80%; height: auto;
     margin: 0 auto;
@@ -51,6 +55,7 @@ button {
     width: 7rem; height: 2rem;
     margin: 10px 0px 0px 5px;
     color: #a79b83;
+    background-color: white;
     border: none;
     border: 1px solid rgb(124, 120, 120);
     border-radius: 25px;
