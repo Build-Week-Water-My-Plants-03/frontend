@@ -30,6 +30,7 @@ div p {
 }
 
 header {
+  background-color: rgb(217, 223, 221);
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;

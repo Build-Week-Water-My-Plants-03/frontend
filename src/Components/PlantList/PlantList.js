@@ -18,8 +18,8 @@ const PlantList = () => {
 
     //API request to get the logged in user's plant data 
     useEffect( () => {
-        axios.get("fakeapi.com")
-        .then(res => setPlantData(res.data))
+        axios.get("https://web44-water-my-plants.herokuapp.com/api/plants")
+        .then(res => console.log(res.data))
         .catch( err => setReqError(err))
     }, [])
 

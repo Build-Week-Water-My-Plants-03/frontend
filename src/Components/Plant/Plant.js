@@ -11,7 +11,7 @@ const Plant = (props) => {
                 <h2>{nickname}</h2>
                 <div className="plantText">
                     <p>{species}</p>
-                    <p>{`Water Every ${h20frequency} Days`}</p>
+                    <p>{`Watering: ${h20frequency}`}</p>
                 </div>
                 <div>
                     <button className="plantBtn">Edit</button>
