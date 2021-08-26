@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css'
 const Header = () => {
     const [loggedIn, isLoggedIn] = useState(false);
@@ -27,8 +28,9 @@ const Header = () => {
                 </svg>
               </div>
             <div className="headerDiv">
-                {/* {loggedIn && <p>{username}</p>} */}
-                {!loggedIn && <p>Log In</p>}
+                {/* {loggedIn && <p>{username}</p>} */
+                /* {!loggedIn && <Link className="headerLinks" to=""><p>Profile</p></Link>}
+                {!loggedIn && <Link className="headerLinks" to=""><p>Log Out</p></Link>} */}
             </div>
         </header>
     )

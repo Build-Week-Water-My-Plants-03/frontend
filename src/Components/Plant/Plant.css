@@ -1,0 +1,23 @@
+.plantText {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    height: 50%;
+}
+
+div.plantText p {
+    font-size: 1.6rem;
+    margin: 0;
+    text-align: center;
+}
+
+div.plantText p:first-of-type {
+    font-size: 1.6rem;
+    position: relative;
+    top: -25px;
+}
+
+.plantBtn {
+    display: inline-block;
+    margin: none;
+}

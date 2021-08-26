@@ -1,12 +1,19 @@
 import './App.css';
-import Plants from './Components/Plants/Plants';
-import Plant from './Components/Plant/Plant';
+import PlantList from './Components/PlantList/PlantList';
+import PlantDetails from './Components/PlantDetails/PlantDetails';
+import Signup from './Components/Signup/Signup';
+import Confirmation from './Components/Signup/Confirmation';
 import {Switch, Route} from 'react-router-dom';
 //import PrivateRoute from './Components/PrivateRoute';
 import axiosWithAuth from "./Components/axiosWithAuth";
 
+import React, {useState, useEffect} from 'react';
+
+
+
 function App() {
 
+tom-loginForm
   //Logout function
   const logout = () => {
     console.log("LOGOUT");
@@ -28,12 +35,14 @@ function App() {
   return (
     <Switch>
       <Route exact path='/'>
+
+ main
       </Route>
       <Route path='/plants'>
-        <Plants />
+        <PlantList />
       </Route>
       <Route path='/plants/:id'>
-        <Plant />
+        <PlantDetails />
       </Route>
       {/* Main div */}
       <div className = "App">
