@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    height: 50%;
+    height: 40%;
 }
 
 div.plantCard h2 {
@@ -18,7 +18,7 @@ div.plantText p {
 div.plantText p:first-of-type {
     font-size: 1.8rem;
     position: relative;
-    top: -25px;
+    top: -15px;
     color:rgb(103, 139, 29);
 }
 

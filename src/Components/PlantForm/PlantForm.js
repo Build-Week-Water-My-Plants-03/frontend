@@ -12,12 +12,12 @@ const PlantForm = (props) => {
     const [formValues, SetFormValues] = useState({
         nickname: "",
         species: "",
-        h20frequency:""
+        h2o_frequency:""
     });
     const [valError, setValError] = useState({
         nickname: "",
         species: "",
-        h20frequency:""
+        h2o_frequency:""
     });
 
     // implementing Yup & Declaring a schema to validate my form
@@ -30,7 +30,7 @@ const PlantForm = (props) => {
         .string()
         .trim()
         .required("Please enter a species"),
-        h20frequency: Yup
+        h2o_frequency: Yup
         .string()
         .trim()
         .required("Please enter desired watering schedule"),
@@ -40,7 +40,7 @@ const PlantForm = (props) => {
     const inputChange = e => {
         const {name, value, checked, type} = e.target
         const valueToUse = type === 'checkbox' ? checked : value;
-        console.log(value)
+
         Yup
         .reach(formSchema, name)
         .validate(value)
@@ -73,20 +73,17 @@ const PlantForm = (props) => {
         const newPlant = {
             nickname: formValues.nickname,
             species: formValues.species,
-            h20frequency: formValues.h20frequency,
+            h2o_frequency: formValues.h2o_frequency,
         } 
-        appendPlant(newPlant);
-        // axios.post("fakeapi.com", newPlant)
-        // .then(res => {
-        //     appendPlant(newPlant)
-        // })
-        // .catch(err => {
-        //     setPostError(err)
-        // })
+        axios.post("https://web44-water-my-plants.herokuapp.com/api/plants", newPlant)
+        .then(res => appendPlant(res.data))
+        .catch(err => {
+            setPostError(err)
+        })
         SetFormValues({
             nickname: "",
             species: "",
-            h20frequency: "",
+            h2o_frequency: "",
         })
     }
 
@@ -94,9 +91,10 @@ const PlantForm = (props) => {
     return(
         <div>
             <div className="errorCont">
+                {postError && <p className="errorMsg">{postError}</p>}
                 {valError.nickname.length > 0 && <p className="errorMsg">{valError.nickname}</p>}
                 {valError.species.length > 0 && <p className="errorMsg">{valError.species}</p>}
-                {valError.h20frequency.length > 0 && <p className="errorMsg">Number not detected</p>}
+                {valError.h2o_frequency.length > 0 && <p className="errorMsg">Number not detected</p>}
             </div>
             <form className="plantCard" onSubmit={submit}>
                 <h2>Create Your Plant!</h2>
@@ -111,7 +109,7 @@ const PlantForm = (props) => {
                     </label>
                     <label>
                         Watering Details:
-                        <input className="" value={formValues.h20frequency} name="h20frequency" onChange={inputChange} placeholder="Ex: an inch a week" />
+                        <input className="" value={formValues.h2o_frequency} name="h2o_frequency" onChange={inputChange} placeholder="Ex: an inch a week" />
                     </label>
                 </div>
                 <button disabled={buttonDisabled}>Create!</button>

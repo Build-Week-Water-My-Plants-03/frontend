@@ -19,7 +19,7 @@ const PlantList = () => {
     //API request to get the logged in user's plant data 
     useEffect( () => {
         axios.get("https://web44-water-my-plants.herokuapp.com/api/plants")
-        .then(res => console.log(res.data))
+        .then(res => setPlantData(res.data))
         .catch( err => setReqError(err))
     }, [])
 
@@ -30,7 +30,7 @@ const PlantList = () => {
             {reqError && <h2 className="errorMsg reqErrorMsg">{`Oops! Something Went Wrong... ${reqError}`}</h2>}
             <section className="plantList" >
                 <PlantForm appendPlant={appendPlant} />
-                {plantData.map( (plant, index) => <Plant key={index} nickname={plant.nickname} species={plant.species} h20frequency={plant.h20frequency} />)}
+                {plantData.map( (plant, index) => <Plant key={index} nickname={plant.nickname} species={plant.species} h2o_frequency={plant.h2o_frequency} />)}
             </section>
         </div>
     )
