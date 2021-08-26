@@ -2,7 +2,7 @@ import './App.css';
 import Plants from './Components/Plants/Plants';
 import Plant from './Components/Plant/Plant';
 import {Switch, Route} from 'react-router-dom';
-import PrivateRoute from './Components/PrivateRoute';
+//import PrivateRoute from './Components/PrivateRoute';
 import axiosWithAuth from "./Components/axiosWithAuth";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         //Remove the token
         localStorage.removeItem("token");
         //Push back to login
-        window.location.href = "LogIn";
+        window.location.href = "Login";
       })
 
       .catch(err =>{ console.log(err);})
@@ -27,12 +27,7 @@ function App() {
 
   return (
     <Switch>
-      {/* Probably need protected route defined here. Might also need to 
-      put the switch inside a router...just a thought. Will correct the 
-      route path and component Tuesday*/}
-      <PrivateRoute exact path="/plant" component={Plants} />
       <Route exact path='/'>
-
       </Route>
       <Route path='/plants'>
         <Plants />
