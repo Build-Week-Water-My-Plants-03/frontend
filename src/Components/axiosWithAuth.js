@@ -6,7 +6,7 @@ const axiosWithAuth = ()=> {
     //Return function calls axios.create()
     return axios.create({
         headers: {authorization: token },
-        baseURL: "" //Add the api here
+        baseURL: "https://web44-water-my-plants.herokuapp.com/api/" //
     });
 }
 

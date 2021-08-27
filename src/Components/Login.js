@@ -15,7 +15,7 @@ const Login = () => {
   //Declare and init error state
   const [error, setError] = useState("");
   //Declare variable to hold base URL
-  const baseUrl = "";
+  const baseUrl = "https://web44-water-my-plants.herokuapp.com/api/";
   //Destructure push from useHistory to redirect
   const {push} = useHistory();
 
@@ -34,7 +34,7 @@ const Login = () => {
     //Prevent default behavior
     event.preventDefault();
     //Axios post calls server, interpolate baseURL, pass in credentials state
-    axios.post(`${baseUrl}/login`, credentials)
+    axios.post(`${baseUrl}/auth/login`, credentials)
     //then set the token
     .then(res =>{
       //localStorage.setItem("token", res.data.token);
